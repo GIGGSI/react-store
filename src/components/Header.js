@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg';
-import CartLink from './Cart/CartLink'
+import CartLink from './Cart/CartLink';
+import { UserContext } from '../context/user';
+import LoginLink from '../components/LoginLink';
 
 export default function Header() {
+  const { user } = useContext(UserContext)
+
   return <header className="header">
     <Link to="/">
       <img src={logo}
@@ -22,13 +26,13 @@ export default function Header() {
           <li>
             <Link to="/products">Products </Link>
           </li>
+          {user.token && <li><Link to='/checkout'>
+            checkout
+          </Link></li>}
         </div>
         <div>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
+          <LoginLink />
           <CartLink />
-
         </div>
       </ul>
     </nav>

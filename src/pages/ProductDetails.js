@@ -18,11 +18,12 @@ export default function ProductDetails() {
     return <Loading />
   } else {
 
-    const { image: { url }, title, price, description, }
+    const { image, title, price, description, }
       = product;
-
+    
+    
     return <section className="single-product">
-      <img src={url}
+      <img src={image}
         alt={title}
         className="single-product-image" />
       <article>
@@ -33,6 +34,7 @@ export default function ProductDetails() {
           className="btn btn-primary btn-block"
           onClick={() => {
             //add to cart
+           
             addToCart(product)
             history.push('/cart')
           }}

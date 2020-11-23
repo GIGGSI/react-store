@@ -10,6 +10,8 @@ export default function CartItem({ id, image, title, price, amount }) {
   const { removeItem, increaseAmount, decreaseAmount, clearCart }
     = useContext(CartContext)
 
+   
+
   return <section className="cart-item">
     <img src={image} alt={title} />
     <div>
